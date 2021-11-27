@@ -12,8 +12,8 @@ def home(request):
         {'name':'Denilson'}#aplicacion de diccionrios
     )
 def add(request):
-    val1 = int(request.Get['num1'])
-    val2 = int(request.Get['num2'])
+    val1 = int(request.POST['num1'])
+    val2 = int(request.POST['num2'])
     resp=val1+val2
     return render(
         request,
