@@ -1,7 +1,14 @@
-<!-- Importando desde otros html en el principal--> 
+<!-- Importando desde otros html en el principal (home)--> 
 {% extends 'base.html' %}
 
 {% block  %}
     <h1>Hello World Bitches </h1>
     <h1>Llego su papi {{name}} </h1>
+
+    <form action ="add">
+        Enter 1st number : <input type="text" name="num1"><br>
+        Enter 2nd number : <input type="text" name="num2"><br>
+        <input type="submit">
+    </form>
+
 {% endblock  %}
