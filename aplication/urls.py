@@ -5,7 +5,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('',views.home,name='home'),
-    #añadiendo formulario desde home con nombre "add"
-    path('add',views.add,name='add'),
+    path('',views.home,name='home'),#añadiendo formulario desde home con nombre "add"
+    path('regClie',views.regClie,name='regClie'),
+    path('regProf',views.regProf,name='regProf'),
+    #path('add',views.add,name='add'),
 ]

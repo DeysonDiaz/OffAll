@@ -10,8 +10,22 @@ def home(request):
         request,
         './home.html',
         {'name':'Denilson'}#aplicacion de diccionrios
-    )
-def add(request):
+)
+def regClie(request):
+    return render(
+        request,
+        './regClie.html',
+        #{'name':'Denilson'}#aplicacion de diccionrios
+)
+def regProf(request):
+    return render(
+        request,
+        './regProf.html',
+        
+        #{'name':'Denilson'}#aplicacion de diccionrios
+)  
+    
+""" def add(request):
     val1 = int(request.POST['num1'])
     val2 = int(request.POST['num2'])
     resp=val1+val2
@@ -20,5 +34,5 @@ def add(request):
         './result.html',
         {'result':resp}
     )
-    
+     """
 
