@@ -2,28 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content "ie=edge">
-    <tittle>OffAll</title>
-</head>
-
-<body >
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OfAll</title>
+    <title>Registro Cliente</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">    
+
     <link rel="stylesheet" href="css/products.css">
 
-
+    <style>
+    body{
+     background: #fff;
+      
+    }        
+    </style>
 <body>
+     
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href="/index.html" class="logo"><img src="img/iconpage.png" height="60" alt="logo"></a>
+            <a href="index.html" class="logo"><img src="img/iconpage.png" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,8 +28,8 @@
                     <li class="nav-item">
                         <a class="nav-link menu_link" style="color: white;" href="registroprofesional.html">Profesional</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: white;" href="registrocliente.html">Registrate</a>
+                    <li class="nav-item menu_link">
+                        <a class="nav-link" style="color: white; border-bottom: 2px solid #fff;bottom: 15px;" href="registrocliente.html">Registrate</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: white;">Iniciar sesión</a>
@@ -41,39 +37,68 @@
                 </ul>
             </div>
         </nav>
-    </header>        
+    </header> 
     
-    <main >
-        <div id="fondo"class="container-fluid" >
-            <div class="box">
-                <a href="registroprofesional.html">
-                    <img  src="img/prof.jpg">
-                    <div class="centrado">
-                        <h2>ENCUENTRA TRABAJO</h2>
+    <main>        
+        
+        <div class="container w-75 bg-primary mt-5 shadow" >
+            <div class="row align-items-stretch" >
+                <div class="col imgrgc d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+                </div>
+                <div class="col bg-white p-5">
+                    <div class="text-end">
+                        <img src="img/iconpage.png" width="48" alt="">
                     </div>
-                    <div class="capa">
-                        <p>Con OfAll podras encontrar una gran cantidad de ofertas de trabajo, solo debes registrarte</p>
-                    </div>            
-                </a>
-            </div>
-            
-            <div class="box">
-                <a href="registrocliente.html">
-                    <img src="img/cli.jpg">
-                    <div class="centrado">
-                        <h2>HAZ UN PEDIDO</h2>
-                    </div>
-                    <div class="capa">
-                        <p>Encuentra un profesional que realice tu pedido</p>
-                    </div>  
-                </a>
+                    <h2 class="fw-bold text-center py-5">Registrate en CS</h2>
+
+                    <!-- LOGIN -->
+
+                    <form action="#">
+                        <div class="row">
+                            <div class="col ">
+                                <label for="nombre" class="form-label">Nombres</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" required autofocus><br>
+                            </div>                          
+                            <div class="col ">
+                                <label for="apellido" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" name="apellido" id="apellido" required autofocus><br>
+                            </div>                          
+                        </div>                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" name="email" id="email" required autofocus>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="cell" class="form-label">Telefono</label>
+                                <input type="number" class="form-control" name="cell" id="cell" required autofocus><br>
+                            </div>                          
+                            <div class="col">
+                                <label for="dni" class="form-label">Dni</label>
+                                <input type="number" class="form-control" name="dni" id="dni" required autofocus><br>
+                            </div>                          
+                        </div>
+                        <div class="col mb-4    ">
+                            <label for="fechanac" class="form-label">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="fechanac" name="fechan" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
+                        </div>                                                  
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                        </div>
+                    </form>
+
+                </div>                
             </div>
         </div>
-        
+
         <!--Login modal-->
         <section class="modal_login">            
             <!-- Modal -->
-            <div class="modal fade  shadow" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">|
+            <div class="modal fade  shadow" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog " style="max-width: 320px;">
                     <div class="modal-content">                        
                         <div class="modal-body">
@@ -106,10 +131,11 @@
                 </div>
             </div>            
         </section>
+           
+
     </main>        
-    
-    
-    <footer class="container-fluid " style="background: black;">  
+        
+    <footer class="container-fluid mt-5" style="background: black;">  
         <div class="container py-5">
             <div class="row">
                 <div class="col-12 col-md">
@@ -157,13 +183,10 @@
             </div>
         </div>              
     </footer>
-        
+    
         
     <script src="js/bootstrap.bundle.min.js"></script>
     
-
-    {% block content%}
-    
-    {% endblock %}
+          
 </body>
 </html>
