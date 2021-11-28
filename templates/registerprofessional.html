@@ -1,35 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Cliente</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">    
-
-    <link rel="stylesheet" href="css/products.css">
-
+    <title>Registro Profesional</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <style>
     body{
-     background: #fff;
-      
+        background: #fff;
+     
     }        
     </style>
 <body>
      
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href="index.html" class="logo"><img src="img/iconpage.png" height="40" alt="logo"></a>
+            <a href="./" class="logo"><img src="{% static 'img/iconpage.png' %}" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul| class="navbar-nav ms-auto mb-2 mb-lg-0">                    
-                    <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: white;" href="registroprofesional.html">Profesional</a>
-                    </li>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                    
                     <li class="nav-item menu_link">
-                        <a class="nav-link" style="color: white; border-bottom: 2px solid #fff;bottom: 15px;" href="registrocliente.html">Registrate</a>
+                        <a class="nav-link" style="color: white;border-bottom: 2px solid #fff;bottom: 15px;" href=" ">Profesional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: white;" href="registerclient">Registrate</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: white;">Iniciar sesión</a>
@@ -39,20 +39,18 @@
         </nav>
     </header> 
     
-    <main>        
+    <main>       
         
         <div class="container w-75 bg-primary mt-5 shadow" >
             <div class="row align-items-stretch" >
-                <div class="col imgrgc d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+                <div class="col imgrgp d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                 </div>
                 <div class="col bg-white p-5">
                     <div class="text-end">
-                        <img src="img/iconpage.png" width="48" alt="">
+                        <img src="{% static 'img/iconpage.png' %}" width="48" alt="">
                     </div>
                     <h2 class="fw-bold text-center py-5">Registrate en CS</h2>
-
                     <!-- LOGIN -->
-
                     <form action="#">
                         <div class="row">
                             <div class="col ">
@@ -82,10 +80,27 @@
                                 <input type="number" class="form-control" name="dni" id="dni" required autofocus><br>
                             </div>                          
                         </div>
-                        <div class="col mb-4    ">
+                        <div class="col mb-4">
                             <label for="fechanac" class="form-label">Fecha de nacimiento</label>
                             <input type="date" class="form-control" id="fechanac" name="fechan" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
-                        </div>                                                  
+                        </div> 
+                        <div class="col mb-4">
+                            <label for="prof" class="form-label">Profesión</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>selecciona tu profesión</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>                        
+                        </div> 
+                        <div class="col mb-4">
+                            <label for="formFile" class="form-label">Documentos opcionales</label>
+                            <input class="form-control" type="file" id="formFile" multiple>
+                        </div>                                           
+                        <div class="mb-4">
+                            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">Registrarse</button>
                         </div>
@@ -93,14 +108,14 @@
 
                 </div>                
             </div>
-        </div>
+        </div>               
 
         <!--Login modal-->
         <section class="modal_login">            
             <!-- Modal -->
             <div class="modal fade  shadow" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog " style="max-width: 320px;">
-                    <div class="modal-content">                        
+                    <div class="modal-content">                                                
                         <div class="modal-body">
                             <div class="align-items-stretch" >                                
                                 <div class=" bg-white p-2">                                    
@@ -110,29 +125,24 @@
                                     <!-- LOGIN -->               
                                     <section class="form-body">
                                         <form action="#">                                                               
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Correo electronico</label>
-                                                <input type="email" class="form-control" name="email" id="email" required autofocus>
+                                            <div class="mb-3">                                                
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Introduce tu correo" required autofocus>
                                             </div>
-                                            <div class="mb-4">
-                                                <label for="password" class="form-label">Password</label>
-                                                <input type="password" class="form-control" name="password">
+                                            <div class="mb-4">                                                
+                                                <input type="password" class="form-control" name="password" placeholder="Introduce tu contraseña" required>
                                             </div>                                                                                                           
                                             <div class="d-grid">
                                                 <button type="submit" class="btn btn-primary">Registrarse</button>
                                             </div>
                                         </form>
-                                    </section>                                     
-                
+                                    </section>                                                                                         
                                 </div>                
                             </div>                            
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>            
         </section>
-           
-
     </main>        
         
     <footer class="container-fluid mt-5" style="background: black;">  
@@ -185,7 +195,7 @@
     </footer>
     
         
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     
           
 </body>
