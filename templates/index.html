@@ -19,6 +19,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                    
+                    {% if request.session.email %}
+                    <li class="nav-item">
+                        <h1> {{request.session.email}} </h1>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: white;" href="logout">Cerrar Sesión</a>
+                    </li>
+                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link menu_link" style="color: white;" href="registerprofessional">Profesional</a>
                     </li>
@@ -27,7 +35,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: white;">Iniciar sesión</a>
-                    </li>                    
+                    </li>
+                    {% endif %}                   
                 </ul>
             </div>
         </nav>
@@ -74,10 +83,10 @@
                                     </section>                                    
                                     <!-- LOGIN -->               
                                     <section class="form-body">
-                                        <form action="#">                                                               
+                                        <form action="login" method="post"> {% csrf_token %}	                                                             
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Correo electronico</label>
-                                                <input type="email" class="form-control" name="email" id="email" required autofocus>
+                                                <input type="email" class="form-control" name="email" required autofocus>
                                             </div>
                                             <div class="mb-4">
                                                 <label for="password" class="form-label">Password</label>
