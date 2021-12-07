@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Solicitudes</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+    <link rel="stylesheet" href="css/styleCS.css">
+    
+<body>
+     
+    <header class="site-header sticky-top">
+        <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
+            <a href="index.html" class="logo"><img src="img/Logo_OFFALL (2).png" height="40" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="categoria.html">Categorias</a>
+                    </li> 
+                    <li class="nav-item menu_link">
+                        <a class="nav-link" style="color: rgb(0, 0, 0);border-bottom: 2px solid rgb(0, 0, 0);bottom: 15px;" href="gestionarsolicitudes.html">Tus Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="solicitud.html">Solicitud</a>
+                    </li>                   
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registroprofesional.html">Profesional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registrocliente.html">Registrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: rgb(0, 0, 0);">Iniciar sesión</a>
+                    </li>                    
+                </ul>
+            </div>
+        </nav>
+    </header> 
+    
+    <main>       
+        
+        <div class="container w-75 bg-primary mt-5" >
+            <div class="row align-items-stretch">                
+                <div class="col bg-white p-5 col-md-12 col-lg-12 col-xl-12 shadow">                                                            
+                        <div class="container text-center">                          
+                          <h2 class="fw-bold text-center mb-5">Gestionar Solicitudes</h2>
+                          <div class="table-responsive">
+                              <table class="table table-hover">
+                                  <thead>
+                                      <tr>
+                                          <th>Descripción</th>
+                                          <th>Fecha</th>
+                                          <th>Categoria</th>
+                                          <th>Estado</th>
+                                          <th>Mensajes</th>
+                                          <th>Editar</th>                              
+                                          <th>Eliminar</th>                        
+                                      </tr>
+                                  </thead>
+                                 
+                                  <tbody>
+                                      <tr>                                             
+                  
+                                          <td>Pintar pared 1x3</td>
+                                          <td>12/12/2021</td>
+                                          <td>Pintor</td>
+                                          <td>Pendiente</td>
+                                          <td><a href="#">
+                                            <img src="img/correo-electronico.png" height="25">
+                                          </a></td>
+                                          <td><a href="#">
+                                            <img src="img/editar.png" height="25">
+                                          </a></td>
+                                          <td><a href="#">
+                                            <img src="img/basura.png" height="25">
+                                          </a></td>
+                                      </tr>                                   
+                                  </tbody>                            
+                              </table>
+                          </div>
+                      </div>                    
+                </div>                                 
+            </div>
+        </div>                               
+    </main>        
+        
+    <footer class="container-fluid mt-5" style="background: black;">  
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 col-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+                <small class="d-block mb-3 text-muted">&copy; 2017–2021</small>
+                </div>
+                <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                    <li><a class="link-secondary" href="#">Random feature</a></li>
+                    <li><a class="link-secondary" href="#">Team feature</a></li>
+                    <li><a class="link-secondary" href="#">Stuff for developers</a></li>
+                    <li><a class="link-secondary" href="#">Another one</a></li>
+                    <li><a class="link-secondary" href="#">Last time</a></li>
+                </ul>
+                </div>
+                <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Resource name</a></li>
+                    <li><a class="link-secondary" href="#">Resource</a></li>
+                    <li><a class="link-secondary" href="#">Another resource</a></li>
+                    <li><a class="link-secondary" href="#">Final resource</a></li>
+                </ul>
+                </div>
+                <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Business</a></li>
+                    <li><a class="link-secondary" href="#">Education</a></li>
+                    <li><a class="link-secondary" href="#">Government</a></li>
+                    <li><a class="link-secondary" href="#">Gaming</a></li>
+                </ul>
+                </div>
+                <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Team</a></li>
+                    <li><a class="link-secondary" href="#">Locations</a></li>
+                    <li><a class="link-secondary" href="#">Privacy</a></li>
+                    <li><a class="link-secondary" href="#">Terms</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>              
+    </footer>
+    
+        
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+          
+</body>
+</html>
