@@ -7,14 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OfAll</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">    
-    <!--<link rel="stylesheet" href="{% static 'css/styleCS.css' %}">-->
-    <link rel="stylesheet" href="{% static 'css/products.css' %}">
-
-
+    <link rel="stylesheet" href="{% static 'css/styleCS.css' %}">
+    
 <body>
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href=" " class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="60" alt="logo"></a>
+            <a href="./" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,18 +23,27 @@
                         <h1> {{request.session.email}} </h1>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: white;" href="logout">Cerrar Sesión</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="logout">Cerrar Sesión</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: white;" href="registerprofessional">Profesional</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="categoria.html">Categorias</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="gestionarsolicitudes.html">Tus Solicitudes</a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="solicitud.html">Solicitud</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: white;" href="registerclient">Registrate</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registerprofessional">Profesional</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: white;">Iniciar sesión</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registerclient">Registrate</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: rgb(0, 0, 0);">Iniciar sesión</a>
+                    </li>  
                     {% endif %}                   
                 </ul>
             </div>
@@ -51,19 +58,18 @@
                     <div class="centrado">
                         <h2>ENCUENTRA TRABAJO</h2>
                     </div>
-                    <div class="capa">
+                    <div class="capa container">
                         <p>Con OfAll podras encontrar una gran cantidad de ofertas de trabajo, solo debes registrarte</p>
                     </div>            
                 </a>
-            </div>
-            
+            </div>            
             <div class="box">
                 <a href="registrocliente.html">
                     <img src="{% static 'img/cli.jpg' %}">
                     <div class="centrado">
                         <h2>HAZ UN PEDIDO</h2>
                     </div>
-                    <div class="capa">
+                    <div class="capa container">
                         <p>Encuentra un profesional que realice tu pedido</p>
                     </div>  
                 </a>

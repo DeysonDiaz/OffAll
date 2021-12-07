@@ -7,32 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Cliente</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleCS.css' %}">
 
-    <style>
-    body{
-     background: #fff;
-      
-    }        
-    </style>
 <body>
      
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href="./" class="logo"><img src="{% static 'img/iconpage.png' %}" height="40" alt="logo"></a>
+            <a href="./" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                    
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: white;" href="registerprofessional">Profesional</a>
-                    </li>
-                    <li class="nav-item menu_link">
-                        <a class="nav-link" style="color: white; border-bottom: 2px solid #fff;bottom: 15px;" href=" ">Registrate</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="categoria.html">Categorias</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="gestionarsolicitudes.html">Tus Solicitudes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: white;">Iniciar sesión</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="solicitud.html">Solicitud</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registerprofessional">Profesional</a>
+                    </li>
+                    <li class="nav-item menu_link">
+                        <a class="nav-link" style="color: rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0);bottom: 15px;" href=" ">Registrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm_login" style="color: rgb(0, 0, 0);">Iniciar sesión</a>
                     </li>                    
                 </ul>
             </div>
@@ -41,15 +44,15 @@
     
     <main>        
         
-        <div class="container w-75 bg-primary mt-5 shadow" >
+        <div class="container w-75 bg-white mt-5 shadow" style="Font-family: 'Franklin Gothic', Arial Bold;">
             <div class="row align-items-stretch" >
                 <div class="col imgrgc d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                 </div>
-                <div class="col bg-white p-5">
+                <div class="col bg-white px-5 mb-5">
                     <div class="text-end">
-                        <img src="{% static 'img/iconpage.png' %}" width="48" alt="">
+                        <img src="{% static 'img/Logo_OFFALL.png' %}" width="100" alt="">
                     </div>
-                    <h2 class="fw-bold text-center py-5">Registrate en CS</h2>
+                    <h2 class="fw-bold text-center py-2 mb-4">Registrate en OffAll</h2>
 
                     <!-- LOGIN -->
 
@@ -82,7 +85,7 @@
                                 <input type="number" class="form-control" name="dni" id="dni" required autofocus><br>
                             </div>                          
                         </div>
-                        <div class="col mb-4    ">
+                        <div class="col mb-4">
                             <label for="fechanac" class="form-label">Fecha de nacimiento</label>
                             <input type="date" class="form-control" id="fechanac" name="fechan" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
                         </div>                                                  
@@ -98,7 +101,7 @@
         <!--Login modal-->
         <section class="modal_login">            
             <!-- Modal -->
-            <div class="modal fade  shadow" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade  shadow" id="modalForm_login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">|
                 <div class="modal-dialog " style="max-width: 320px;">
                     <div class="modal-content">                        
                         <div class="modal-body">
