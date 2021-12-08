@@ -11,4 +11,14 @@ urlpatterns = [
     path("createprofessional", views.createprofessional, name = "createprofessional"),
     path("login", views.login, name = "login"),
     path("logout", views.logout, name = "logout"),
+    path("registerACLRole", views.registerACLRole, name = "registerACLRole"),
+    path("createACLRole", views.createACLRole, name = "createACLRole"),
+	path("registerACLResource", views.registerACLResource, name = "registerACLResource"),
+    path("createACLResource", views.createACLResource, name = "createACLResource"),
+    path("registerACLUser", views.registerACLUser, name = "registerACLUser"),
+    path("createACLUser", views.createACLUser, name = "createACLUser"),
+    path("registerACLAccess", views.registerACLAccess, name = "registerACLAccess"),
+    path("createACLAccess", views.createACLAccess, name = "createACLAccess"),
+    path("registerSolicitud", views.registerSolicitud, name = "registerSolicitud"),
+    path("createSolicitud", views.createSolicitud, name = "createSolicitud")
 ]
