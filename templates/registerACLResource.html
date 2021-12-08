@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro ACLResource</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+
+    <style>
+    body{
+     background: #fff;
+      
+    }        
+    </style>
+<body>
+     
+    <header class="site-header sticky-top">
+        <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
+            <a href="./" class="logo"><img src="{% static 'img/iconpage.png' %}" height="40" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                    
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: white;" href="registerprofessional">Profesional</a>
+                    </li>
+                    <li class="nav-item menu_link">
+                        <a class="nav-link" style="color: white; border-bottom: 2px solid #fff;bottom: 15px;" href=" ">Registrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: white;">Iniciar sesión</a>
+                    </li>                    
+                </ul>
+            </div>
+        </nav>
+    </header> 
+    
+    <main>        
+        
+        <div class="container w-75 bg-primary mt-5 shadow" >
+            <div class="row align-items-stretch" >
+                <div class="col imgrgc d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+                </div>
+                <div class="col bg-white p-5">
+                    <div class="text-end">
+                        <img src="{% static 'img/iconpage.png' %}" width="48" alt="">
+                    </div>
+                    <h2 class="fw-bold text-center py-5">Registrate en CS</h2>
+
+                    <!-- LOGIN -->
+
+                    <form action="createACLResource" method="post"> {% csrf_token %}	
+                        <div class="row">
+                            <div class="col ">
+                                <label for="ResourceName" class="form-label">Nombre del Recurso</label>
+                                <input type="text" class="form-control" name="ResourceName" id="ResourceName" required autofocus><br>
+                            </div>                          
+                            <div class="col ">
+                                <label for="ResourceStatus" class="form-label">Estado del Recurso</label>
+                                <input type="number" class="form-control" name="ResourceStatus" id="ResourceStatus" required autofocus><br>
+                            </div>                          
+                        </div>                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </form>
+
+                </div>                
+            </div>
+        </div>
+
+        <!--Login modal-->
+        <section class="modal_login">            
+            <!-- Modal -->
+            <div class="modal fade  shadow" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog " style="max-width: 320px;">
+                    <div class="modal-content">                        
+                        <div class="modal-body">
+                            <div class="align-items-stretch" >                                
+                                <div class=" bg-white p-2">                                    
+                                    <section class="form-header mb-5">
+                                        <h4 class="text-center">Inicia sesion</h4>                
+                                    </section>                                    
+                                    <!-- LOGIN -->               
+                                    <section class="form-body">
+                                        <form action="#">                                                               
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Correo electronico</label>
+                                                <input type="email" class="form-control" name="email" id="email" required autofocus>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="password" class="form-label">Password</label>
+                                                <input type="password" class="form-control" name="password">
+                                            </div>                                                                                                           
+                                            <div class="d-grid">
+                                                <button type="submit" class="btn btn-primary">Registrarse</button>
+                                            </div>
+                                        </form>
+                                    </section>                                     
+                
+                                </div>                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </section>
+           
+
+    </main>        
+        
+    <footer class="container-fluid mt-5" style="background: black;">  
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 col-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+                <small class="d-block mb-3 text-muted">&copy; 2017–2021</small>
+                </div>
+                <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                    <li><a class="link-secondary" href="#">Random feature</a></li>
+                    <li><a class="link-secondary" href="#">Team feature</a></li>
+                    <li><a class="link-secondary" href="#">Stuff for developers</a></li>
+                    <li><a class="link-secondary" href="#">Another one</a></li>
+                    <li><a class="link-secondary" href="#">Last time</a></li>
+                </ul>
+                </div>
+                <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Resource name</a></li>
+                    <li><a class="link-secondary" href="#">Resource</a></li>
+                    <li><a class="link-secondary" href="#">Another resource</a></li>
+                    <li><a class="link-secondary" href="#">Final resource</a></li>
+                </ul>
+                </div>
+                <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Business</a></li>
+                    <li><a class="link-secondary" href="#">Education</a></li>
+                    <li><a class="link-secondary" href="#">Government</a></li>
+                    <li><a class="link-secondary" href="#">Gaming</a></li>
+                </ul>
+                </div>
+                <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Team</a></li>
+                    <li><a class="link-secondary" href="#">Locations</a></li>
+                    <li><a class="link-secondary" href="#">Privacy</a></li>
+                    <li><a class="link-secondary" href="#">Terms</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>              
+    </footer>
+    
+        
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    
+          
+</body>
+</html>
