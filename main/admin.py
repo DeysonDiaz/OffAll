@@ -8,5 +8,5 @@ admin.site.register(ACLRole)
 admin.site.register(ACLResource)
 admin.site.register(ACLUser)
 admin.site.register(ACLAccess)
-admin.site.register(Solicitud)
+admin.site.register(Requests)
 

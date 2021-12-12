@@ -104,7 +104,7 @@ def createSolicitud(request):
     SolicitudClient = Client.objects.get(names=SolicitudClient_text)
     SolicitudProfessional_text = request.POST['SolicitudProfessional_text']
     SolicitudProfessional = Professional.objects.get(names=SolicitudProfessional_text)
-    Solicitud(SolicitudProfessional=SolicitudProfessional, SolicitudClient=SolicitudClient, SolicitudDescription=SolicitudDescription, SolicitudStatus=SolicitudStatus).save()
+    Requests(SolicitudProfessional=SolicitudProfessional, SolicitudClient=SolicitudClient, SolicitudDescription=SolicitudDescription, SolicitudStatus=SolicitudStatus).save()
     return render(request, 'index.html')
 
 def registerSolicitud(request):

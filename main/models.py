@@ -64,9 +64,11 @@ class ACLAccess(models.Model):
     AccessRole = models.ForeignKey(ACLRole, null=False, blank=False, on_delete=models.CASCADE)
     AccessResource = models.ForeignKey(ACLResource, null=False, blank=False, on_delete=models.CASCADE)
 
-class Solicitud(models.Model):
-    IdSolicitud = models.AutoField(primary_key=True)
+class Requests(models.Model):
     SolicitudDescription = models.CharField(max_length=5000)
-    SolicitudStatus = models.IntegerField()
+    SolicitudImg = models.ImageField(upload_to = 'pics')
+    SolicitudDate = models.DateField()
+    SolicitudProfession = models.ForeignKey(Profession, on_delete=models.CASCADE)
+    SolicitudAddress = models.CharField(max_length=100)
+    SolicitudPrice = models.FloatField()
     SolicitudClient = models.ForeignKey(Client, null=False, blank=False, on_delete=models.CASCADE)
-    SolicitudProfessional = models.ForeignKey(Professional, null=False, blank=False, on_delete=models.CASCADE)
