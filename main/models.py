@@ -33,6 +33,7 @@ class Professional(models.Model):
     dni = models.IntegerField()
     date = models.DateField()
     profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to = 'pics')
     description = models.TextField()
 	
     def __str__(self):

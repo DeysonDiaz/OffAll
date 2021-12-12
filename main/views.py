@@ -24,7 +24,7 @@ def createprofessional(request):
     telephone = request.POST['cell']
     dni = request.POST['dni']
     date = request.POST['fechan']
-    profession = request.POST['cat']
+    profession = Profession.objects.get(id=request.POST['cat'])
     img = request.POST['img']
     description = request.POST['desc']
     Professional(names=names, surnames=surnames, email=email, password=password, telephone=telephone, dni=dni, date=date, profession=profession, img=img, description=description).save()
@@ -32,13 +32,13 @@ def createprofessional(request):
 
 def login(request):
     if request.method=='POST':
-        var1=userclient=Client.objects.get(email=request.POST['email'], password=request.POST['password'])
-        #userprofessional=Professional.objects.get(email=request.POST['email'], password=request.POST['password'])
-        '''if userclient:
-            request.session['email']==userclient.email
-        else:
-            request.session['email']==userprofessional.email'''
-        request.session['email']=userclient.email
+        if request.POST['rol'] == 'cliente':
+            print('entro a cliente')
+            userclient=Client.objects.get(email=request.POST['email'], password=request.POST['password'])
+            request.session['email']=userclient.email
+        if request.POST['rol'] == 'profesional':
+            userprofessional=Professional.objects.get(email=request.POST['email'], password=request.POST['password'])
+            request.session['email']=userprofessional.email
         return render(request, 'index.html')
 
 def logout(request):
