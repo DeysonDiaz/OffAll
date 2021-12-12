@@ -65,9 +65,9 @@
                             <label for="prof" class="form-label">Categoria</label>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>selecciona una profesión</option>
-                                <option value="1">Carpintero</option>
-                                <option value="2">Albañil</option>
-                                <option value="3">Soldador</option>
+                                {% for instance in objectList %}
+                                <option value="{{instance.id}}">{{instance.name}}</option>
+                                {% endfor %}
                             </select>                        
                         </div>                                                                                         
                         <div class="row">

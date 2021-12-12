@@ -117,7 +117,11 @@ def managingRequests(request):
     return render(request, 'gestionarsolicitudes.html')
 
 def requests(request):
-    return render(request, 'solicitud.html')
+    queryset = Profession.objects.all()
+    context = {
+		'objectList': queryset,
+	}
+    return render(request, 'solicitud.html', context)
 
 def listRequests(request):
     return render(request, 'listaSolicitudes.html')
