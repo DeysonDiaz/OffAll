@@ -20,5 +20,13 @@ urlpatterns = [
     path("registerACLAccess", views.registerACLAccess, name = "registerACLAccess"),
     path("createACLAccess", views.createACLAccess, name = "createACLAccess"),
     path("registerSolicitud", views.registerSolicitud, name = "registerSolicitud"),
-    path("createSolicitud", views.createSolicitud, name = "createSolicitud")
+    path("createSolicitud", views.createSolicitud, name = "createSolicitud"),
+    path("category", views.category, name= "category"),
+    path("managingRequests", views.managingRequests, name= "managingRequests"),
+    path("requests", views.requests, name= "requests"),
+    path("listRequests", views.listRequests, name= "listRequests"),
+    path("detailsRequests", views.detailsRequests, name= "detailsRequests"),
+    path("editProfessional", views.editProfessional, name= "editProfessional"),
+    path("bandejaMSG", views.bandejaMSG, name= "bandejaMSG"),
+    path("editRequests", views.editRequests, name= "editRequests")
 ]

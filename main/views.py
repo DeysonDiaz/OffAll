@@ -109,3 +109,30 @@ def createSolicitud(request):
 
 def registerSolicitud(request):
     return render(request, 'registerSolicitud.html')
+
+def category(request):
+    return render(request, 'categoria.html')
+
+def managingRequests(request):
+    return render(request, 'gestionarsolicitudes.html')
+
+def requests(request):
+    return render(request, 'solicitud.html')
+
+def listRequests(request):
+    return render(request, 'listaSolicitudes.html')
+
+def detailsRequests(request):
+    return render(request, 'detalleSolicitud.html')
+
+def editProfessional(request):
+    return render(request, 'perfilprofesional_edit.html')
+
+def bandejaMSG(request):
+    return render(request, 'bandejamsg.html')
+
+def editRequests(request):
+    return render(request, 'solicitud_edit.html')
+
+
+
