@@ -53,7 +53,7 @@ class ACLResource(models.Model):
 
 class ACLUser(models.Model):
     IdUser = models.AutoField(primary_key=True)
-    UserName = models.CharField(max_length=40)
+    UserEmail = models.CharField(max_length=40)
     UserStatus = models.IntegerField()
     UserRole = models.ForeignKey(ACLRole, null=False, blank=False, on_delete=models.CASCADE)
 
@@ -72,3 +72,4 @@ class Requests(models.Model):
     SolicitudAddress = models.CharField(max_length=100)
     SolicitudPrice = models.FloatField()
     SolicitudClient = models.ForeignKey(Client, null=False, blank=False, on_delete=models.CASCADE)
+    SolicitudStatus = models.CharField(max_length=100)

@@ -32,14 +32,20 @@ def createprofessional(request):
 
 def login(request):
     if request.method=='POST':
-        if request.POST['rol'] == 'cliente':
-            print('entro a cliente')
-            userclient=Client.objects.get(email=request.POST['email'], password=request.POST['password'])
+        UserEmail_text = request.POST['email']
+        User = ACLUser.objects.get(UserEmail=UserEmail_text)
+        UserRole = User.UserRole
+        UserRoleId = UserRole.getIdRole()
+        Role = ACLRole.objects.get(IdRole=UserRoleId)
+        RoleName = Role.RoleName
+        if RoleName == 'Cliente':
+            userclient=Client.objects.get(email=request.POST['email'], password=request.POST['password'])    
             request.session['email']=userclient.email
-        if request.POST['rol'] == 'profesional':
-            userprofessional=Professional.objects.get(email=request.POST['email'], password=request.POST['password'])
+            return render(request, 'indexClient.html')
+        elif Role.RoleName == 'Profesional':
+            userprofessional=Professional.objects.get(email=request.POST['email'], password=request.POST['password']) 
             request.session['email']=userprofessional.email
-        return render(request, 'index.html')
+            return render(request, 'indexProfessional.html')
 
 def logout(request):
     del request.session['email']
@@ -54,6 +60,7 @@ def registerprofessional(request):
 
 def registerclient(request):
     return render(request, 'registerclient.html')
+
 
 def createACLRole(request):
     RoleName = request.POST['RoleName']
@@ -74,11 +81,11 @@ def registerACLResource(request):
     return render(request, 'registerACLResource.html')
 
 def createACLUser(request):
-    UserName = request.POST['UserName']
+    UserEmail = request.POST['UserEmail']
     UserStatus = request.POST['UserStatus']
     UserRole_text = request.POST['UserRole_text']
     UserRole = ACLRole.objects.get(RoleName=UserRole_text)
-    ACLUser(UserRole=UserRole, UserName=UserName, UserStatus=UserStatus).save()
+    ACLUser(UserRole=UserRole, UserEmail=UserEmail, UserStatus=UserStatus).save()
     return render(request, 'index.html')
 
 def registerACLUser(request):
@@ -99,12 +106,14 @@ def registerACLAccess(request):
 
 def createSolicitud(request):
     SolicitudDescription = request.POST['SolicitudDescription']
-    SolicitudStatus = request.POST['SolicitudStatus']
-    SolicitudClient_text = request.POST['SolicitudClient_text']
-    SolicitudClient = Client.objects.get(names=SolicitudClient_text)
-    SolicitudProfessional_text = request.POST['SolicitudProfessional_text']
-    SolicitudProfessional = Professional.objects.get(names=SolicitudProfessional_text)
-    Requests(SolicitudProfessional=SolicitudProfessional, SolicitudClient=SolicitudClient, SolicitudDescription=SolicitudDescription, SolicitudStatus=SolicitudStatus).save()
+    SolicitudClient = Client.objects.get(email=request.POST.get('SolicitudClient_email'))
+    SolicitudProfession = Profession.objects.get(id=request.POST['SolicitudProfession_text'])
+    SolicitudPrice = request.POST['SolicitudPrice']
+    SolicitudDate = request.POST['SolicitudDate']
+    SolicitudAddress = request.POST['SolicitudAddress']
+    SolicitudImg = request.POST.get('img')
+    SolicitudStatus = "Pendiente"
+    Requests(SolicitudProfession=SolicitudProfession, SolicitudPrice=SolicitudPrice, SolicitudDate=SolicitudDate, SolicitudAddress=SolicitudAddress, SolicitudImg=SolicitudImg, SolicitudClient=SolicitudClient, SolicitudDescription=SolicitudDescription, SolicitudStatus=SolicitudStatus).save()
     return render(request, 'index.html')
 
 def registerSolicitud(request):
@@ -114,7 +123,11 @@ def category(request):
     return render(request, 'categoria.html')
 
 def managingRequests(request):
-    return render(request, 'gestionarsolicitudes.html')
+    queryset = Requests.objects.all()
+    context = {
+		'objectList': queryset,
+	}
+    return render(request, 'gestionarsolicitudes.html', context)
 
 def requests(request):
     queryset = Profession.objects.all()
@@ -124,7 +137,11 @@ def requests(request):
     return render(request, 'solicitud.html', context)
 
 def listRequests(request):
-    return render(request, 'listaSolicitudes.html')
+    queryset = Requests.objects.all()
+    context = {
+		'objectList': queryset,
+	}
+    return render(request, 'listaSolicitudes.html', context)
 
 def detailsRequests(request):
     return render(request, 'detalleSolicitud.html')
@@ -137,6 +154,21 @@ def bandejaMSG(request):
 
 def editRequests(request):
     return render(request, 'solicitud_edit.html')
+
+def indexClient(request):
+    return render(request, 'indexClient.html')
+
+def indexProfessional(request):
+    return render(request, 'indexProfessional.html')
+
+def aceptarSolicitud(request):
+    Solicitud = Requests.objects.get(id=request.POST.get('id'))
+    print(Solicitud)
+    print(Solicitud.SolicitudStatus)
+    Solicitud.SolicitudStatus = "Aceptada"
+    print(Solicitud.SolicitudStatus)
+    
+    return render(request, 'indexProfessional.html')
 
 
 

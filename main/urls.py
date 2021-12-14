@@ -28,5 +28,8 @@ urlpatterns = [
     path("detailsRequests", views.detailsRequests, name= "detailsRequests"),
     path("editProfessional", views.editProfessional, name= "editProfessional"),
     path("bandejaMSG", views.bandejaMSG, name= "bandejaMSG"),
-    path("editRequests", views.editRequests, name= "editRequests")
+    path("editRequests", views.editRequests, name= "editRequests"),
+    path('indexClient', views.indexClient, name='indexClient'),
+    path('indexProfessional', views.indexProfessional, name='indexProfessional'),
+    path('aceptarSolicitud', views.aceptarSolicitud, name='aceptarSolicitud')
 ]
