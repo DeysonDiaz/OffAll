@@ -1,4 +1,4 @@
-{% load static %}
+<!--{% load static %}-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,109 +7,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro ACLResource</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleCS.css' %}">
 
-    <style>
-    body{
-     background: #fff;
-      
-    }        
-    </style>
 <body>
      
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
             <a href="./" class="logo"><img src="{% static 'img/iconpage.png' %}" height="40" alt="logo"></a>
+            <a href="./" class="logo"><img src="img/Logo_OFFALL (2).png" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                    
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: white;" href="registerprofessional">Profesional</a>
-                    </li>
-                    <li class="nav-item menu_link">
-                        <a class="nav-link" style="color: white; border-bottom: 2px solid #fff;bottom: 15px;" href=" ">Registrate</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="categoria.html">Categorias</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="gestionarsolicitudes.html">Tus Solicitudes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: white;">Iniciar sesión</a>
-                    </li>                    
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="solicitud.html">Solicitud</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registerprofessional">Profesional</a>
+                    </li>
+                    <li class="nav-item menu_link">
+                        <a class="nav-link" style="color: rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0);bottom: 15px;" href=" ">Registrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm_login" style="color: rgb(0, 0, 0);">Iniciar sesión</a>
+                    </li>                     
                 </ul>
             </div>
         </nav>
     </header> 
     
-    <main>        
-        
-        <div class="container w-75 bg-primary mt-5 shadow" >
+    <main>               
+
+        <div class="container mt-5">
             <div class="row align-items-stretch" >
-                <div class="col imgrgc d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+                <div class="col-sm-2 col-md-3 col-lg-4 col-xl-4">
                 </div>
-                <div class="col bg-white p-5">
+                <div class="col-12 bg-white col-sm-8 col-md-6 col-lg-4 col-xl-4 shadow">
                     <div class="text-end">
-                        <img src="{% static 'img/iconpage.png' %}" width="48" alt="">
-                    </div>
-                    <h2 class="fw-bold text-center py-5">Registrate en CS</h2>
-
-                    <!-- LOGIN -->
-
-                    <form action="createACLResource" method="post"> {% csrf_token %}	
-                        <div class="row">
-                            <div class="col ">
+                        <img src="img/Logo_OFFALL.png" width="50" alt="">
+                    </div>                    
+                    <div class="pb-5 px-5">                        
+                        <h3 class="fw-bold text-center mb-4">ACL Resource</h3>                    
+                        <form action="createACLResource" method="post"> {% csrf_token %}
+                            <div class="mb-3">
                                 <label for="ResourceName" class="form-label">Nombre del Recurso</label>
-                                <input type="text" class="form-control" name="ResourceName" id="ResourceName" required autofocus><br>
-                            </div>                          
-                            <div class="col ">
-                                <label for="ResourceStatus" class="form-label">Estado del Recurso</label>
-                                <input type="number" class="form-control" name="ResourceStatus" id="ResourceStatus" required autofocus><br>
-                            </div>                          
-                        </div>                        
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Aceptar</button>
-                        </div>
-                    </form>
-
-                </div>                
+                                <input type="text" class="form-control" name="ResourceName" id="ResourceName" required autofocus>
+                            </div>                                                                
+                            <div class="row mb-4">
+                                <div class="col-3 col-sm-3 col-md-3"></div>                        
+                                <div class="col-6 col-sm-6 col-md-6">
+                                    <label for="ResourceStatus" class="form-label">Estado del Recurso</label>
+                                <input type="number" class="form-control" name="ResourceStatus" id="ResourceStatus" required autofocus>
+                                </div>                                   
+                            </div>                   
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col">                                
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                                    </div>
+                                </div>
+                                <div class="col"></div>
+                            </div>                                            
+                        </form>
+                    </div>                    
+                </div>                                
             </div>
-        </div>
-
-        <!--Login modal-->
-        <section class="modal_login">            
-            <!-- Modal -->
-            <div class="modal fade  shadow" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog " style="max-width: 320px;">
-                    <div class="modal-content">                        
-                        <div class="modal-body">
-                            <div class="align-items-stretch" >                                
-                                <div class=" bg-white p-2">                                    
-                                    <section class="form-header mb-5">
-                                        <h4 class="text-center">Inicia sesion</h4>                
-                                    </section>                                    
-                                    <!-- LOGIN -->               
-                                    <section class="form-body">
-                                        <form action="#">                                                               
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Correo electronico</label>
-                                                <input type="email" class="form-control" name="email" id="email" required autofocus>
-                                            </div>
-                                            <div class="mb-4">
-                                                <label for="password" class="form-label">Password</label>
-                                                <input type="password" class="form-control" name="password">
-                                            </div>                                                                                                           
-                                            <div class="d-grid">
-                                                <button type="submit" class="btn btn-primary">Registrarse</button>
-                                            </div>
-                                        </form>
-                                    </section>                                     
-                
-                                </div>                
-                            </div>                            
-                        </div>
-                    </div>
-                </div>
-            </div>            
-        </section>
-           
+        </div>  
 
     </main>        
         

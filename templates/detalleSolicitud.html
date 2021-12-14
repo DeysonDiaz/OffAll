@@ -65,60 +65,13 @@
                         <div class="card shadow mb-3">
                             <div class="card-body ">
                                 <h5 class="card-title text-center">Imagen de referencia</h5>
-                                <img class="card-img-top" src="{% static 'img/prof.jpg' %}" alt="Card image cap">
-                                <div class="card-body text-end">
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalForm_accept_solc">Aceptar</button>
-                                    <button type="button" class="btn btn-secondary btn-sm">Rechazar</button>                            
-                                </div>
+                                <img class="card-img-top" src="{% static 'img/prof.jpg' %}" alt="Card image cap">                                
                             </div>                            
                         </div>
                     </div>                
                 </div>
            </div>           
-        </div>
-
-        <!--accept solc modal-->
-        <section class="modal_trmCtrt">            
-            <!-- Modal -->
-            <div class="modal fade  shadow" id="modalForm_accept_solc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">|
-                <div class="modal-dialog ">
-                    <div class="modal-content">                        
-                        <div class="modal-body">
-                            <div class="align-items-stretch" >                                
-                                <div class=" bg-white p-2">                                    
-                                    <section class="form-header mb-5">
-                                        <p class="text-center"><b class="text-danger">Antes de continuar</b>, por favor ingrese algunos términos de contrato.</p>                
-                                    </section>                                    
-                                    <!-- LOGIN -->               
-                                    <section class="form-body">
-                                        <form action="#">                                                               
-                                            <div class="mb-4">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;"></textarea>
-                                            </div>   
-                                            <div class="row mb-4">
-                                                <div class="col">
-                                                    <label for="costo_trabajo" class="form-label">Costo</label>
-                                                    <input type="number" class="form-control" name="costo_trabajo" placeholder="Añadir cantidad en Soles">
-                                                </div>    
-                                                <div class="col">
-                                                    <label for="disponib" class="form-label">Disponibilidad</label>
-                                                    <input type="date" class="form-control" id="disponib" name="disponib" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
-                                                </div>                                                                                                                          
-                                            </div>                                                                                                                                                                                                                                                                                                                             
-                                            <div class="d-grid">
-                                                <button type="submit" class="btn btn-primary">Confirmar</button>
-                                            </div>
-                                        </form>
-                                    </section>                                     
-                
-                                </div>                
-                            </div>                            
-                        </div>
-                    </div>
-                </div>
-            </div>            
-        </section>
+        </div>       
     </main>
     
 

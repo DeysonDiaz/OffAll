@@ -53,36 +53,39 @@
                     
                     <h3 class="mb-5">¿Qué servicio estás buscando?</h3>
                     <!-- LOGIN -->
-                    <form action="#">
+                    <form action="createSolicitud" method="POST"> {% csrf_token %}
                         <div class="mb-4">                            
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Descripción"></textarea>
+                            <textarea class="form-control" id="SolicitudDescription" rows="5" placeholder="Descripción" name="SolicitudDescription"></textarea>
                         </div> 
-                        <div class="col ms-auto mb-4 col-md-6 col-lg-6 col-xl-5">
+                        <div class="col mb-4">
                             <label for="formFile" class="form-label">Añadir archivos</label>
-                            <input class="form-control" type="file" id="formFile" multiple>
+                            <input class="form-control" type="file" id="formFile" name="img" multiple>
                         </div> 
+                        <label for="SolicitudClient_email" class="form-label" hidden>Email </label>
+                        <input type="text" class="form-control" value="{{request.session.email}}" name="SolicitudClient_email" hidden>  
+                            
                         <div class="col mb-4 mb-4 col-md-6 col-lg-6 col-xl-5">
                             <label for="prof" class="form-label">Categoria</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>selecciona una profesión</option>
+                            <select class="form-select" aria-label="Default select example" name="SolicitudProfession_text">
+                                <option selected>Selecciona tu profesión</option>
                                 {% for instance in objectList %}
                                 <option value="{{instance.id}}">{{instance.name}}</option>
                                 {% endfor %}
-                            </select>                        
+                            </select>                      
                         </div>                                                                                         
                         <div class="row">
                             <div class="col">
-                                <label for="fechanac" class="form-label">Fecha de entrega</label>
-                                <input type="date" class="form-control" id="fechanac" name="fechan" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
+                                <label for="SolicitudDate" class="form-label">Fecha de entrega</label>
+                                <input type="date" class="form-control" id="SolicitudDate" name="SolicitudDate" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
                             </div>                          
                             <div class="col">
-                                <label for="direccion" class="form-label">Dirección</label>
-                                <input type="text" class="form-control" name="direccion" id="direccion" required autofocus><br>
+                                <label for="SolicitudAddress" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" name="SolicitudAddress" id="SolicitudAddress" required autofocus><br>
                             </div>                          
                         </div>
                         <div class="mb-4">
-                            <label for="presupuesto" class="form-label">¿Cuál es su presupuesto?</label>
-                            <input type="number" class="form-control" name="presupuesto" placeholder="Añadir cantidad en Soles">
+                            <label for="SolicitudPrice" class="form-label">¿Cuál es su presupuesto?</label>
+                            <input type="number" class="form-control" name="SolicitudPrice" placeholder="Añadir cantidad en Soles" id="SolicitudPrice">
                         </div>                                                                         
                         <div class="d-grid ms-auto mb-4 col-md-6 col-lg-6 col-xl-5">
                             <button type="submit" class="btn btn-primary">Enviar Solicitud</button>

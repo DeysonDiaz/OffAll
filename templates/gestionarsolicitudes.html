@@ -65,12 +65,12 @@
                                   </thead>
                                  
                                   <tbody>
-                                      <tr>                                             
-                  
-                                          <td>Pintar pared 1x3</td>
-                                          <td>12/12/2021</td>
-                                          <td>Pintor</td>
-                                          <td>Pendiente</td>
+                                        {% for instance in objectList %}
+                                        <tr>                                             
+                                          <td>{{ instance.SolicitudDescription }}</td>
+                                          <td>{{ instance.SolicitudDate }}</td>
+                                          <td>{{ instance.SolicitudProfession }}</td>
+                                          <td>{{ instance.SolicitudStatus }}</td>
                                           <td><a href="#">
                                             <img src="{% static 'img/correo-electronico.png' %}" height="25">
                                           </a></td>
@@ -80,7 +80,8 @@
                                           <td><a href="#">
                                             <img src="{% static 'img/basura.png' %}" height="25">
                                           </a></td>
-                                      </tr>                                   
+                                      </tr> 
+                                      {% endfor %}                                  
                                   </tbody>                            
                               </table>
                           </div>
