@@ -163,11 +163,9 @@ def indexProfessional(request):
 
 def aceptarSolicitud(request):
     Solicitud = Requests.objects.get(id=request.POST.get('id'))
-    print(Solicitud)
-    print(Solicitud.SolicitudStatus)
     Solicitud.SolicitudStatus = "Aceptada"
-    print(Solicitud.SolicitudStatus)
-    
+    Solicitud.save()
+    #.delete()
     return render(request, 'indexProfessional.html')
 
 
