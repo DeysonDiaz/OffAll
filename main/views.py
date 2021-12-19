@@ -143,8 +143,12 @@ def listRequests(request):
 	}
     return render(request, 'listaSolicitudes.html', context)
 
-def detailsRequests(request):
-    return render(request, 'detalleSolicitud.html')
+def detailsRequests(request, myID):
+    queryset = get_object_or_404(Requests, id = myID)
+    context = {
+        'objectList': queryset,
+    }
+    return render(request, 'detalleSolicitud.html', context)
 
 def editProfessional(request):
     return render(request, 'perfilprofesional_edit.html')

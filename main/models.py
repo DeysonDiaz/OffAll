@@ -73,3 +73,6 @@ class Requests(models.Model):
     SolicitudPrice = models.FloatField()
     SolicitudClient = models.ForeignKey(Client, null=False, blank=False, on_delete=models.CASCADE)
     SolicitudStatus = models.CharField(max_length=100)
+
+    def get_mos_url(self):
+        return "detailsRequests/"+str(self.id)
