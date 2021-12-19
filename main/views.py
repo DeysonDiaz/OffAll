@@ -116,7 +116,7 @@ def createSolicitud(request):
     SolicitudPrice = request.POST['SolicitudPrice']
     SolicitudDate = request.POST['SolicitudDate']
     SolicitudAddress = request.POST['SolicitudAddress']
-    SolicitudImg = request.POST.get('img')
+    SolicitudImg = request.FILES.get('img')
     SolicitudStatus = "Pendiente"
     Requests(SolicitudProfession=SolicitudProfession, SolicitudPrice=SolicitudPrice, SolicitudDate=SolicitudDate, SolicitudAddress=SolicitudAddress, SolicitudImg=SolicitudImg, SolicitudClient=SolicitudClient, SolicitudDescription=SolicitudDescription, SolicitudStatus=SolicitudStatus).save()
     return render(request, 'indexClient.html')
