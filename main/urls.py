@@ -25,6 +25,7 @@ urlpatterns = [
     path("managingRequests", views.managingRequests, name= "managingRequests"),
     path("requests", views.requests, name= "requests"),
     path("listRequests", views.listRequests, name= "listRequests"),
+    #url con el id
     path("detailsRequests/<int:myID>", views.detailsRequests, name= "detailsRequests"),
     path("editProfessional", views.editProfessional, name= "editProfessional"),
     path("bandejaMSG", views.bandejaMSG, name= "bandejaMSG"),

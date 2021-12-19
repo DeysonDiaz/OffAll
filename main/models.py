@@ -74,5 +74,6 @@ class Requests(models.Model):
     SolicitudClient = models.ForeignKey(Client, null=False, blank=False, on_delete=models.CASCADE)
     SolicitudStatus = models.CharField(max_length=100)
 
+#funcion de url
     def get_mos_url(self):
         return "detailsRequests/"+str(self.id)
