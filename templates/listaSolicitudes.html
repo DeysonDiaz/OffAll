@@ -16,7 +16,7 @@
     
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href="index.html" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
+            <a href="indexProfessional" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,18 +24,15 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
                     {% if request.session.email %}
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="categoria.html">Categorias</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="gestionarsolicitudes.html">Tus Solicitudes</a>
-                    </li>        
-                    <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="solicitud.html">Solicitud</a>
-                    </li>                   
-                    <li class="nav-item menu_link">
-                        <a class="nav-link" style="color: rgb(0, 0, 0);border-bottom: 2px solid rgb(0, 0, 0);bottom: 15px;" href="registroprofesional.html">Profesional</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="editProfessional">Perfil</a>
                     </li>
-                   <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="listRequests">Solicitudes</a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: rgb(0, 0, 0);"> {{request.session.email}} </a>
+                    </li>  
+                    <li class="nav-item">
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="logout">Cerrar Sesión</a>
                     </li>
                     {% endif %}                     

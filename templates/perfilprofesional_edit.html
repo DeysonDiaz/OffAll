@@ -15,7 +15,7 @@
      
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href="index.html" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
+            <a href="indexProfessional" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,7 +26,7 @@
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="editProfessional">Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="listRequests">Tus Solicitudes</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="listRequests">Solicitudes</a>
                     </li>  
                     <li class="nav-item">
                         <a class="nav-link" style="color: rgb(0, 0, 0);"> {{request.session.email}} </a>
@@ -163,7 +163,7 @@
                                                                              
                                         <div class="text-end">
                                             <button type="submit" class="btn btn-primary">Aceptar</button>
-                                            <a class="btn btn-secondary" role="button" href="perfilprofesional.html">Cancelar</a>
+                                            <a class="btn btn-secondary" role="button" href="indexProfessional">Cancelar</a>
                                         </div>
                                     </div>
                                 </div>

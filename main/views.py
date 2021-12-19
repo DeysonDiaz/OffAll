@@ -119,7 +119,7 @@ def createSolicitud(request):
     SolicitudImg = request.POST.get('img')
     SolicitudStatus = "Pendiente"
     Requests(SolicitudProfession=SolicitudProfession, SolicitudPrice=SolicitudPrice, SolicitudDate=SolicitudDate, SolicitudAddress=SolicitudAddress, SolicitudImg=SolicitudImg, SolicitudClient=SolicitudClient, SolicitudDescription=SolicitudDescription, SolicitudStatus=SolicitudStatus).save()
-    return render(request, 'index.html')
+    return render(request, 'indexClient.html')
 
 def registerSolicitud(request):
     return render(request, 'registerSolicitud.html')

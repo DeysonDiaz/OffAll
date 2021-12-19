@@ -14,7 +14,7 @@
 <body>
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href="./" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
+            <a href="indexProfessional" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,7 +25,7 @@
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="editProfessional">Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="listRequests">Tus Solicitudes</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="listRequests">Solicitudes</a>
                     </li>  
                     <li class="nav-item">
                         <a class="nav-link" style="color: rgb(0, 0, 0);"> {{request.session.email}} </a>
@@ -39,47 +39,41 @@
         </nav>
     </header>        
     
-    <main >
-        <div id="fondo"class="container-fluid" >
-            <div class="box">
-                <a href="registroprofesional.html">
-                    <img  src="{% static 'img/prof.jpg' %}">
-                    <div class="centrado">
-                        <h2>ENCUENTRA TRABAJO</h2>
-                    </div>
-                    <div class="capa container">
-                        <p>Con OfAll podras encontrar una gran cantidad de ofertas de trabajo, solo debes registrarte</p>
-                    </div>            
-                </a>
-            </div>            
-            <div class="box">
-                <a href="registrocliente.html">
-                    <img src="{% static 'img/cli.jpg' %}">
-                    <div class="centrado">
-                        <h2>HAZ UN PEDIDO</h2>
-                    </div>
-                    <div class="capa container">
-                        <p>Encuentra un profesional que realice tu pedido</p>
-                    </div>  
-                </a>
+    <main>
+        <div id="fondo" class="container-fluid border" style="  width: 100%;
+                                                                height: 600px;
+                                                                background-image: url(static/img/trabajo1.jpg);
+                                                                background-size: cover;
+                                                                background-position: center;
+                                                                background-repeat: no-repeat;">
+            <div class="col card mb-2 bg-light shadow p-3 position-relative top-50 start-50 translate-middle bg-opacity-50" style="max-width: 40em;">
+                <div class="card-body text-center">
+                    <h1 class=" card-title my-2" style=" color: black;
+                                                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                                                    font-size: 50px;">Descubre nuestras opciones </h1>
+                    <p class=" card-text" style="color: black;
+                                                font-family: Arial, Helvetica, sans-serif;
+                                                font-size: 20px;">Con OffAll puedes realizar o aceptar una solicitud de acuerdo con tus necesidades, revisa la lista de solicitudes y escoje la mejor opcion para ti
+                    </p>
+                </div>
             </div>
         </div>
-        
+
         <!--Login modal-->
-        <section class="modal_login">            
+        <section class="modal_login">
             <!-- Modal -->
             <div class="modal fade  shadow" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">|
                 <div class="modal-dialog " style="max-width: 320px;">
-                    <div class="modal-content">                        
+                    <div class="modal-content">
                         <div class="modal-body">
-                            <div class="align-items-stretch" >                                
-                                <div class=" bg-white p-2">                                    
+                            <div class="align-items-stretch">
+                                <div class=" bg-white p-2">
                                     <section class="form-header mb-5">
-                                        <h4 class="text-center">Inicia sesion</h4>                
-                                    </section>                                    
-                                    <!-- LOGIN -->               
+                                        <h4 class="text-center">Inicia sesion</h4>
+                                    </section>
+                                    <!-- LOGIN -->
                                     <section class="form-body">
-                                        <form action="login" method="post"> {% csrf_token %}	                                                             
+                                        <form action="login" method="post"> {% csrf_token %}
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Correo electronico</label>
                                                 <input type="email" class="form-control" name="email" required autofocus>
@@ -89,27 +83,27 @@
                                                 <input type="password" class="form-control" name="password">
                                             </div>
                                             <!-- <div class="mb-4">
-                                                <input class="form-check-input" type="radio" name="rol" id="flexRadioDefault1" value="cliente">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Cliente
-                                                </label>
-                                                <input class="form-check-input" type="radio" name="rol" id="flexRadioDefault1" value="profesional">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Profesional
-                                                </label>
-                                            </div> -->                                                                               
+                                            <input class="form-check-input" type="radio" name="rol" id="flexRadioDefault1" value="cliente">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Cliente
+                                            </label>
+                                            <input class="form-check-input" type="radio" name="rol" id="flexRadioDefault1" value="profesional">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Profesional
+                                            </label>
+                                        </div> -->
                                             <div class="d-grid">
                                                 <button type="submit" class="btn btn-primary">Registrarse</button>
                                             </div>
                                         </form>
-                                    </section>                                     
-                
-                                </div>                
-                            </div>                            
+                                    </section>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
         </section>
     </main>        
     

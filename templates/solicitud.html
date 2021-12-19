@@ -14,27 +14,26 @@
      
     <header class="site-header sticky-top">
         <nav id="pri" class="container navbar navbar-expand-lg navbar-light ">
-            <a href="./" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
+            <a href="indexClient" class="logo"><img src="{% static 'img/Logo_OFFALL (2).png' %}" height="40" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                    
-                    <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="category">Categorias</a>
-                    </li> 
+                    {% if request.session.email %}
                     <li class="nav-item">
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="managingRequests">Tus Solicitudes</a>
-                    </li>
-                    <li class="nav-item menu_link">
-                        <a class="nav-link" style="color: rgb(0, 0, 0);border-bottom: 2px solid rgb(0, 0, 0);bottom: 15px;" href=" ">Solicitud</a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="requests">Solicitud</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registerprofessional">Profesional</a>
-                    </li>
+                        <a class="nav-link" style="color: rgb(0, 0, 0);"> {{request.session.email}} </a>
+                    </li>  
                     <li class="nav-item">
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="logout">Cerrar Sesión</a>
-                    </li>                    
+                    </li>
+                    {% endif %}                  
                 </ul>
             </div>
         </nav>
@@ -50,7 +49,7 @@
                     
                     <h3 class="mb-5">¿Qué servicio estás buscando?</h3>
                     <!-- LOGIN -->
-                    <form action="createSolicitud" method="POST"> {% csrf_token %}
+                    <form action="createSolicitud" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                         <div class="mb-4">                            
                             <textarea class="form-control" id="SolicitudDescription" rows="5" placeholder="Descripción" name="SolicitudDescription"></textarea>
                         </div> 
