@@ -21,21 +21,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
+                    {% if request.session.email %}
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="categoria.html">Categorias</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="gestionarsolicitudes.html">Tus Solicitudes</a>
-                    </li>        
-                    <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="solicitud.html">Solicitud</a>
-                    </li>                   
-                    <li class="nav-item menu_link">
-                        <a class="nav-link" style="color: rgb(0, 0, 0);border-bottom: 2px solid rgb(0, 0, 0);bottom: 15px;" href="registroprofesional.html">Profesional</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="editProfessional">Perfil</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="listRequests">Tus Solicitudes</a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: rgb(0, 0, 0);"> {{request.session.email}} </a>
+                    </li>  
+                    <li class="nav-item">
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="logout">Cerrar Sesión</a>
-                    </li>                   
+                    </li>
+                    {% endif %}                    
                 </ul>
             </div>
         </nav>
