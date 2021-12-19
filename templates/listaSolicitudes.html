@@ -68,9 +68,10 @@
                     <td>{{instance.SolicitudProfession}}</td>
                     <td><a href="{{instance.get_mos_url}}" class="link-secondary">Ver mas</a></td>
                     <td>          
-                        <form action="aceptarSolicitud" method="POST"> {% csrf_token %}
+                        <form action="aceptarSolicitud" method="POST"> 
+                            {% csrf_token %}
                             <input type="number" class="form-control" value="{{instance.id}}" name="id" hidden>  
-                            <button type="submit" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalForm_accept_solc">Aceptar</button>                                                    
+                            <button type="submit" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalForm_accept_solc">Aceptar</button>
                         </form>                                         
                     </td>
                     </tr>

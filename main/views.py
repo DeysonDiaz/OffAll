@@ -110,29 +110,32 @@ def registerACLAccess(request):
     return render(request, 'registerACLAccess.html')
 
 def createSolicitud(request):
-    SolicitudDescription = request.POST['SolicitudDescription']
-    SolicitudClient = Client.objects.get(email=request.POST.get('SolicitudClient_email'))
-    SolicitudProfession = Profession.objects.get(id=request.POST['SolicitudProfession_text'])
-    SolicitudPrice = request.POST['SolicitudPrice']
-    SolicitudDate = request.POST['SolicitudDate']
-    SolicitudAddress = request.POST['SolicitudAddress']
-    SolicitudImg = request.FILES.get('img')
-    SolicitudStatus = "Pendiente"
-    Requests(SolicitudProfession=SolicitudProfession, SolicitudPrice=SolicitudPrice, SolicitudDate=SolicitudDate, SolicitudAddress=SolicitudAddress, SolicitudImg=SolicitudImg, SolicitudClient=SolicitudClient, SolicitudDescription=SolicitudDescription, SolicitudStatus=SolicitudStatus).save()
-    return render(request, 'indexClient.html')
+    if request.POST:
+        SolicitudDescription = request.POST['SolicitudDescription']
+        SolicitudClient = Client.objects.get(email=request.POST.get('SolicitudClient_email'))
+        SolicitudProfession = Profession.objects.get(id=request.POST['SolicitudProfession_text'])
+        SolicitudPrice = request.POST['SolicitudPrice']
+        SolicitudDate = request.POST['SolicitudDate']
+        SolicitudAddress = request.POST['SolicitudAddress']
+        SolicitudImg = request.FILES.get('img')
+        SolicitudStatus = "Pendiente"
+        Requests(
+            SolicitudProfession=SolicitudProfession, 
+            SolicitudPrice=SolicitudPrice, 
+            SolicitudDate=SolicitudDate, 
+            SolicitudAddress=SolicitudAddress, 
+            SolicitudImg=SolicitudImg, 
+            SolicitudClient=SolicitudClient, 
+            SolicitudDescription=SolicitudDescription, 
+            SolicitudStatus=SolicitudStatus).save()
+        return render(request, 'indexClient.html')
+
 
 def registerSolicitud(request):
     return render(request, 'registerSolicitud.html')
 
 def category(request):
     return render(request, 'categoria.html')
-
-def managingRequests(request):
-    queryset = Requests.objects.all()
-    context = {
-		'objectList': queryset,
-	}
-    return render(request, 'gestionarsolicitudes.html', context)
 
 def requests(request):
     queryset = Profession.objects.all()
@@ -141,29 +144,51 @@ def requests(request):
 	}
     return render(request, 'solicitud.html', context)
 
-def listRequests(request):
-    queryset = Requests.objects.all()
-    context = {
-		'objectList': queryset,
-	}
-    return render(request, 'listaSolicitudes.html', context)
+def cambProfessional(request):
+    if request.POST:
+        
+        abc=Professional.objects.get(id=request.POST['id'])
+        abc.names=request.POST['names']
+        abc.surnames=request.FILES.get('surnames')
+        abc.email=request.POST['email']
+        abc.telephone=request.POST['telephone']
+        abc.dni=request.POST['dni']
+        abc.date=request.POST['date']
+        ###############
+        var=Profession.POST['profession']
+        abc.profession=Profession.object.get(id=var.name)
+        ################
+        abc.save()
+        queryset = Requests.objects.all()
+        context = {
+            'objectList': queryset,
+        }
+        return render(request,'solicitud_edit.html',context )
 
-# funcion myID
-def detailsRequests(request, myID):
-    queryset = get_object_or_404(Requests, id = myID)
+def editProfessional(request):
+    abc=Professional.objects.get(id=request.POST['id'])
+    prof=Profession.objects.all()
+    context = {
+        'objectList': abc,
+        'objectList1': prof,
+    }
+    
+    #return render(request,'solicitud_edit.html',context )
+    return render(request, 'perfilprofesional_edit.html',context)
+
+def deleteProfessional(request):
+    var=Requests.objects.get(id=request.POST['id'])
+    var.delete()    
+    queryset = Requests.objects.all()
     context = {
         'objectList': queryset,
     }
-    return render(request, 'detalleSolicitud.html', context)
+    return render(request, '''indexProfessional''', context)
+    #############################
 
-def editProfessional(request):
-    return render(request, 'perfilprofesional_edit.html')
 
 def bandejaMSG(request):
     return render(request, 'bandejamsg.html')
-
-def editRequests(request):
-    return render(request, 'solicitud_edit.html')
 
 def indexClient(request):
     return render(request, 'indexClient.html')
@@ -179,4 +204,72 @@ def aceptarSolicitud(request):
     return render(request, 'indexProfessional.html')
 
 
+# Requests-Solicitud
 
+
+def managingRequests(request):
+    queryset = Requests.objects.all()
+    context = {
+		'objectList': queryset,
+	}
+    return render(request, 'gestionarsolicitudes.html', context)
+def listRequests(request):
+    queryset = Requests.objects.all()
+    context = {
+		'objectList': queryset,
+	}
+    return render(request, 'listaSolicitudes.html', context)
+# funcion myID
+def detailsRequests(request, myID):
+    queryset = get_object_or_404(Requests, id = myID)
+    context = {
+        'objectList': queryset,
+    }
+    return render(request, 'detalleSolicitud.html', context)
+
+
+def movEditRequests(request):
+    abc=Requests.objects.get(id=request.POST['id'])
+    prof=Profession.objects.all()
+    context = {
+        'objectList': abc,
+        'objectList1': prof,
+    }
+    
+    return render(request,'solicitud_edit.html',context )
+
+def editRequests(request):
+     
+    if request.POST:
+        
+        abc=Requests.objects.get(id=request.POST['SolicitudId'])
+        #abc.SolicitudId=Requests.objects.get(id=request.POST['SolicitudId'])
+        abc.SolicitudDescription=request.POST['SolicitudDescription']
+        abc.SolicitudImg=request.FILES.get('SolicitudImg')
+        abc.SolicitudDate=request.POST['SolicitudDate']
+        abc.SolicitudAddress=request.POST['SolicitudAddress']
+        abc.SolicitudPrice=request.POST['SolicitudPrice']
+        ###############
+        print(request.POST['SolicitudProfession'])
+        var=Profession.objects.get(id=request.POST['SolicitudProfession'])
+        #print(var)
+        abc.SolicitudProfession=var
+        ################
+        abc.save()
+        queryset = Requests.objects.all()
+        context = {
+            'objectList': queryset,
+        }
+        return render(request,'solicitud_edit.html',context )
+
+def deleteRequests(request):
+    var=Requests.objects.get(id=request.POST['id'])
+    var.delete()
+    
+    queryset = Requests.objects.all()
+    context = {
+        'objectList': queryset,
+    }
+    """ 
+    queryset.delete() """
+    return render(request, 'gestionarsolicitudes.html', context)

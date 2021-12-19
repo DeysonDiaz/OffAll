@@ -1,4 +1,5 @@
 {% load static %}
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,40 +51,65 @@
                 <div class="col bg-white p-5 col-md-12 col-lg-12 col-xl-10 shadow">
                     
                     <h3 class="mb-5">¿Qué servicio estás buscando?</h3>
-                    <!-- LOGIN -->
-                    <form action="#">
+                    
+                    
+                    <form action="editRequests" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!--
                         <div class="mb-4">                            
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Descripción">lkaskmdmasdmasd.as,mdas adkmas.dasmd.asmdasdasda.,mdas.md sad.amdas.mdsa</textarea>
+                            <h1 class="form-control" id="id" name="id"
+                                rows="5" placeholder="id">{{objectList.id}}
+                        </h1>
+                        </div>-->
+
+
+                        <div class="mb-4">                            
+                            <textarea class="form-control" id="SolicitudDescription" name="SolicitudDescription"
+                                rows="5" placeholder="Descripción">{{objectList.SolicitudDescription}}
+                            </textarea>
                         </div> 
                         <div class="col ms-auto mb-4 col-md-6 col-lg-6 col-xl-5">
-                            <label for="formFile" class="form-label">Añadir archivos</label>
-                            <input class="form-control" type="file" id="formFile" multiple>
+                            <label for="SolicitudImg" class="form-label">Añadir archivos</label>
+                            <input class="form-control" type="file" id="SolicitudImg" multiple
+                            value="{{objectList.SolicitudImg.url}}">
+                            
                         </div> 
                         <div class="col mb-4 mb-4 col-md-6 col-lg-6 col-xl-5">
+                            
                             <label for="prof" class="form-label">Categoria</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>selecciona una profesión</option>
-                                <option value="1">Carpintero</option>
-                                <option value="2">Albañil</option>
-                                <option value="3">Soldador</option>
-                            </select>                        
+                            <select class="form-select" aria-label="Default select example" 
+                                 name="SolicitudProfession">
+                                <option selected>Selecciona tu profesión</option>
+                                {% for instance in objectList1 %}
+                                <option value="{{instance.id}}">{{instance.name}}</option>
+                                {% endfor %}
+                            </select> 
+
                         </div>                                                                                         
                         <div class="row">
                             <div class="col">
-                                <label for="fechanac" class="form-label">Fecha de entrega</label>
-                                <input type="date" class="form-control" id="fechanac" name="fechan" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
+                                <label for="SolicitudDate" class="form-label">Fecha de entrega</label>
+                                <input type="date" class="form-control" id="SolicitudDate" name="SolicitudDate" 
+                                min="1900-01-01" max="2050-12-31" value={{objectList.SolicitudDate}} >  
                             </div>                          
                             <div class="col mb-4">
-                                <label for="direccion" class="form-label">Dirección</label>
-                                <input type="text" class="form-control" name="direccion" id="direccion" required autofocus value="askldja">
+                                <label for="SolicitudAddress" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" 
+                                name="SolicitudAddress" id="SolicitudAddress" 
+                                required autofocus value={{objectList.SolicitudAddress}}>
                             </div>                          
                         </div>
                         <div class="mb-4">
-                            <label for="presupuesto" class="form-label">¿Cuál es su presupuesto?</label>
-                            <input type="number" class="form-control" name="presupuesto" placeholder="Añadir cantidad en Soles" value="120">
+                            <label for="SolicitudPrice" class="form-label">¿Cuál es su presupuesto?</label>
+                            <input type="number" class="form-control" 
+                                name="SolicitudPrice" placeholder="Añadir cantidad en Soles"    
+                                value={{objectList.SolicitudPrice}}>
                         </div>                                                                         
                         <div class="ms-auto text-end mb-4 col-md-6 col-lg-6 col-xl-5">
                             <button type="submit" class="btn btn-primary">Aceptar</button>
+                            
+                            <input type="text" class="form-control" value="{{objectList.id}}" name="SolicitudId" hidden>  
+                            
                             <a type="submit" class="btn btn-secondary" href="gestionarsolicitudes.html">Cancelar</a>
                         </div>
                     </form>

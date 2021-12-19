@@ -54,7 +54,6 @@
                                           <th>Fecha</th>
                                           <th>Categoria</th>
                                           <th>Estado</th>
-                                          <th>Mensajes</th>
                                           <th>Editar</th>                              
                                           <th>Eliminar</th>                        
                                       </tr>
@@ -67,15 +66,36 @@
                                           <td>{{ instance.SolicitudDate }}</td>
                                           <td>{{ instance.SolicitudProfession }}</td>
                                           <td>{{ instance.SolicitudStatus }}</td>
-                                          <td><a href="#">
-                                            <img src="{% static 'img/correo-electronico.png' %}" height="25">
-                                          </a></td>
-                                          <td><a href="editRequests">
-                                            <img src="{% static 'img/editar.png' %}" height="25">
-                                          </a></td>
+                                          
+                                          {% comment %} 
                                           <td><a href="#">
                                             <img src="{% static 'img/basura.png' %}" height="25">
-                                          </a></td>
+                                          </a></td> 
+                                          {% endcomment %}
+                                          
+                                          <td>
+                                            <form action="movEditRequests" method="POST"> 
+                                                {% csrf_token %}
+                                                <input type="number" class="form-control" value="{{instance.id}}" name="id" hidden>
+                                                <img src="{% static 'img/editar.png' %}" height="25">
+                                                <button type="submit" 
+                                                    class="btn btn-primary btn-sm" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#modalForm_delete_solc">Editar</button>
+                                            </form>
+                                          </td>
+
+                                          <td>
+                                            <form action="deleteRequests" method="POST"> 
+                                                {% csrf_token %}
+                                                <input type="number" class="form-control" value="{{instance.id}}" name="id" hidden>
+                                                <img src="{% static 'img/basura.png' %}" height="25">
+                                                <button type="submit" 
+                                                    class="btn btn-primary btn-sm" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#modalForm_delete_solc">Eliminar</button>
+                                            </form>
+                                          </td>
                                       </tr> 
                                       {% endfor %}                                  
                                   </tbody>                            

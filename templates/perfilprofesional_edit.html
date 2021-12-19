@@ -84,87 +84,93 @@
                             <div class="card mb-3 px-3">
                                 <div class="card-body">                                
                                     <div class="col-12 bg-white">                                        
-                                        <div class=" align-items-center justify-content-between border-bottom">
-                                            <div class="row py-2">
-                                                <div class="col-3">
-                                                    <p class="">Nombre</p>
-                                                </div>
-                                                <div class="col input-group">
-                                                    <input type="text" class="form-control text-end" name="nombre" id="nombre" required autofocus value="Eduardo Hugo">
-                                                    <input type="text" class="form-control text-end" name="apellido" id="apellido" required autofocus value="C. Castillo">
-                                                </div>
-                                            </div>                                                                                        
-                                        </div>
-                                        <div class="align-items-center justify-content-between border-bottom">
-                                            <div class="row py-2">
-                                                <div class="col">
-                                                    <p>Correo</p>
-                                                </div>
-                                                <div class="col">                                                    
-                                                    <input type="email" class="form-control text-end" name="email" id="email" required autofocus value="ecutipacas@unsa.edu.pe">
-                                                </div>
-                                            </div>                                                                                        
-                                        </div>
-                                        <div class="align-items-center justify-content-between border-bottom">
-                                            <div class="row py-2">
-                                                <div class="col">
-                                                    <p>Celular</p>
-                                                </div>
-                                                <div class="col">                                                    
-                                                    <input type="number" class="form-control text-end" name="cell" id="cell" required autofocus value="937492403">                                                
-                                                </div>
-                                            </div>                                                                                        
-                                        </div>     
-                                        <div class="align-items-center justify-content-between border-bottom">
-                                            <div class="row py-2">
-                                                <div class="col">
-                                                    <p>Dni</p>
-                                                </div>
-                                                <div class="col">                                                    
-                                                    <input type="number" class="form-control text-end" name="dni" id="dni" required autofocus value="73852720">
-                                                </div>
-                                            </div>                                                                                        
-                                        </div> 
-                                        <div class="align-items-center justify-content-between border-bottom">
-                                            <div class="row py-2">
-                                                <div class="col">
-                                                    <p>Fecha de nacimiento</p>
-                                                </div>
-                                                <div class="col">                                                    
-                                                    <input type="date" class="form-control text-end" id="fechanac" name="fechan" value="2021-07-22" min="1900-01-01" max="2050-12-31">  
-                                                </div>
-                                            </div>                                                                                        
-                                        </div> 
-                                        <div class="align-items-center justify-content-between border-bottom">
-                                            <div class="row py-2">
-                                                <div class="col">
-                                                    <p>Profesión</p>
-                                                </div>
-                                                <div class="col">                                                    
-                                                    <select class="form-select text-end" aria-label="Default select example">
-                                                        <option selected>selecciona tu profesión</option>
-                                                        <option value="cat">One</option>
-                                                        <option value="alb">Two</option>
-                                                        <option value="pint">Three</option>
-                                                    </select> 
-                                                </div>
-                                            </div>                                                                                        
-                                        </div>  
-                                        <div class="align-items-center justify-content-between">
-                                            <div class="row py-2">
-                                                <div class="col">
-                                                    <p>Documentos opcionales</p>
-                                                </div>
-                                                <div class="col">                                                    
-                                                    <input class="form-control" type="file" id="formFile" multiple>
-                                                </div>
-                                            </div>                                                                                        
-                                        </div>                                                                            
-                                                                             
-                                        <div class="text-end">
-                                            <button type="submit" class="btn btn-primary">Aceptar</button>
-                                            <a class="btn btn-secondary" role="button" href="indexProfessional">Cancelar</a>
-                                        </div>
+                                        <form action="editProfessional" method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class=" align-items-center justify-content-between border-bottom">
+                                                <div class="row py-2">
+                                                    <div class="col-3">
+                                                        <p class="">Nombre</p>
+                                                    </div>
+                                                    <div class="col input-group">
+                                                        <input type="text" class="form-control text-end" name="names" id="names" required autofocus value={{objectList.names}}>
+                                                        <input type="text" class="form-control text-end" name="surnames" id="surnames" required autofocus value={{objectList.surnames}}>
+                                                    </div>
+                                                </div>                                                                                        
+                                            </div>
+                                            <div class="align-items-center justify-content-between border-bottom">
+                                                <div class="row py-2">
+                                                    <div class="col">
+                                                        <p>Correo</p>
+                                                    </div>
+                                                    <div class="col">                                                    
+                                                        <input type="email" class="form-control text-end" name="email" id="email" required autofocus value={{objectList.email}}>
+                                                    </div>
+                                                </div>                                                                                        
+                                            </div>
+                                            <div class="align-items-center justify-content-between border-bottom">
+                                                <div class="row py-2">
+                                                    <div class="col">
+                                                        <p>Celular</p>
+                                                    </div>
+                                                    <div class="col">                                                    
+                                                        <input type="number" class="form-control text-end" name="telephone" id="telephone" required autofocus value={{objectList.telephone}}>
+                                                    </div>
+                                                </div>                                                                                        
+                                            </div>     
+                                            <div class="align-items-center justify-content-between border-bottom">
+                                                <div class="row py-2">
+                                                    <div class="col">
+                                                        <p>Dni</p>
+                                                    </div>
+                                                    <div class="col">                                                    
+                                                        <input type="number" class="form-control text-end" name="dni" id="dni" required autofocus value={{objectList.dni}}>
+                                                    </div>
+                                                </div>                                                                                        
+                                            </div> 
+                                            <div class="align-items-center justify-content-between border-bottom">
+                                                <div class="row py-2">
+                                                    <div class="col">
+                                                        <p>Fecha de nacimiento</p>
+                                                    </div>
+                                                    <div class="col">                                                    
+                                                        <input type="date" class="form-control text-end" id="date" name="date" value={{objectList.date}} min="1900-01-01" max="2050-12-31">  
+                                                    </div>
+                                                </div>                                                                                        
+                                            </div> 
+                                            <div class="align-items-center justify-content-between border-bottom">
+                                                <div class="row py-2">
+                                                    <div class="col">
+                                                        <p>Profesión</p>
+                                                    </div>
+                                                    <div class="col">                                                    
+                                                        <select class="form-select text-end" aria-label="Default select example" 
+                                                            id="profession" name="profession" >
+                                                            <option selected>Selecciona tu profesión</option>
+                                                            {% for instance in objectList1 %}
+                                                            <option value="{{instance.id}}">{{instance.name}}</option>
+                                                            {% endfor %}
+                                                        </select> 
+                                                    </div>
+                                                </div>                                                                                        
+                                            </div>  
+                                            <div class="align-items-center justify-content-between">
+                                                <div class="row py-2">
+                                                    <div class="col">
+                                                        <p>Documentos opcionales</p>
+                                                    </div>
+                                                    <div class="col">                                                    
+                                                        {% comment %} <input class="form-control" type="file" id="formFile" multiple> {% endcomment %}
+                                                        <input class="form-control" type="file" id="img" name="img" multiple
+                                                        value="{{objectList.img.url}}">
+                                                    </div>
+                                                </div>                                                                                        
+                                            </div>                                                                            
+                                                                                
+                                            <div class="text-end">
+                                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                                                <a class="btn btn-secondary" role="button" href="indexProfessional">Cancelar</a>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>                                        

@@ -27,10 +27,16 @@ urlpatterns = [
     path("listRequests", views.listRequests, name= "listRequests"),
     #url con el id
     path("detailsRequests/<int:myID>", views.detailsRequests, name= "detailsRequests"),
+    ##
+    path("deleteRequests", views.deleteRequests, name = "deleteRequests"),
+    path("movEditRequests", views.movEditRequests, name= "movEditRequests"),
+    ##
     path("editProfessional", views.editProfessional, name= "editProfessional"),
     path("bandejaMSG", views.bandejaMSG, name= "bandejaMSG"),
     path("editRequests", views.editRequests, name= "editRequests"),
+    
     path('indexClient', views.indexClient, name='indexClient'),
     path('indexProfessional', views.indexProfessional, name='indexProfessional'),
     path('aceptarSolicitud', views.aceptarSolicitud, name='aceptarSolicitud')
+       
 ]

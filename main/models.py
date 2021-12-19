@@ -39,6 +39,7 @@ class Professional(models.Model):
     def __str__(self):
         return self.names
     
+    
 class ACLRole(models.Model):
     IdRole = models.AutoField(primary_key=True)
     RoleName = models.CharField(max_length=200)
@@ -77,3 +78,5 @@ class Requests(models.Model):
 #funcion de url
     def get_mos_url(self):
         return "detailsRequests/"+str(self.id)
+    def get_mos_url(self):
+        return "editRequests/"+str(self.id)

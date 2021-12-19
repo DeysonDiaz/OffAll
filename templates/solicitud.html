@@ -49,13 +49,14 @@
                     
                     <h3 class="mb-5">¿Qué servicio estás buscando?</h3>
                     <!-- LOGIN -->
-                    <form action="createSolicitud" method="POST"> {% csrf_token %}
+                    <form action="createSolicitud" method="POST" enctype="multipart/form-data"> 
+                        {% csrf_token %}
                         <div class="mb-4">                            
                             <textarea class="form-control" id="SolicitudDescription" rows="5" placeholder="Descripción" name="SolicitudDescription"></textarea>
                         </div> 
                         <div class="col mb-4">
                             <label for="formFile" class="form-label">Añadir archivos</label>
-                            <input class="form-control" type="file" id="formFile" name="img">
+                            <input class="form-control" type="file" id="img" name="img" multiple>
                         </div> 
                         <label for="SolicitudClient_email" class="form-label" hidden>Email </label>
                         <input type="text" class="form-control" value="{{request.session.email}}" name="SolicitudClient_email" hidden>  
