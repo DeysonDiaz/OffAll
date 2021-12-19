@@ -1,4 +1,5 @@
 {% load static %}
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,25 +21,27 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    {% if request.session.email %}
                     <li class="nav-item">
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="categoria.html">Categorias</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="gestionarsolicitudes.html">Tus Solicitudes</a>
-                    </li>        
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="category">Categorías</a>
+                    </li> 
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="solicitud.html">Solicitud</a>
-                    </li>                   
-                    <li class="nav-item menu_link">
-                        <a class="nav-link" style="color: rgb(0, 0, 0);border-bottom: 2px solid rgb(0, 0, 0);bottom: 15px;" href="registroprofesional.html">Profesional</a>
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="managingRequests">Tus Solicitudes</a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="requests">Solicitud</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="registrocliente.html">Registrate</a>
-                    </li>
+                        <a class="nav-link" style="color: rgb(0, 0, 0);"> {{request.session.email}} </a>
+                    </li>  
                     <li class="nav-item">
-                        <a class="nav-link menu_link" data-bs-toggle="modal" data-bs-target="#modalForm" style="color: rgb(0, 0, 0);">Iniciar sesión</a>
-                    </li>                    
+                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="logout">Cerrar Sesión</a>
+                    </li>
+                    {% endif %}                   
                 </ul>
             </div>
         </nav>
@@ -64,8 +67,7 @@
                     <div class="col-md-8">
                         <div class="card shadow mb-3">
                             <div class="card-body ">
-                                <h5 class="card-title text-center">{{objectList.SolicitudImg}}</h5>
-                                <img class="card-img-top" src="{% static 'img/prof.jpg' %}" alt="Card image cap">                                
+                                <img class="card-img-top" src="{{objectList.SolicitudImg.url}}" alt="Card image cap">                                
                             </div>                            
                         </div>
                     </div>                
