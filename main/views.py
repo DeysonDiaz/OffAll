@@ -143,7 +143,7 @@ def listRequests(request):
 	}
     return render(request, 'listaSolicitudes.html', context)
 
-# funcion con myID
+# funcion myID
 def detailsRequests(request, myID):
     queryset = get_object_or_404(Requests, id = myID)
     context = {
