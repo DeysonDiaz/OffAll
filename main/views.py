@@ -14,6 +14,8 @@ def createclient(request):
     dni = request.POST['dni']
     date = request.POST['fechan']
     Client(names=names, surnames=surnames, email=email, password=password, telephone=telephone, dni=dni, date=date).save()
+    rol = ACLRole.objects.get(RoleName="Cliente")
+    ACLUser(UserRole=rol, UserEmail=email, UserStatus=1).save()
     return render(request, 'index.html')
 
 def createprofessional(request):
@@ -28,7 +30,10 @@ def createprofessional(request):
     img = request.POST['img']
     description = request.POST['desc']
     Professional(names=names, surnames=surnames, email=email, password=password, telephone=telephone, dni=dni, date=date, profession=profession, img=img, description=description).save()
+    rol = ACLRole.objects.get(RoleName="Profesional")
+    ACLUser(UserRole=rol, UserEmail=email, UserStatus=1).save()
     return render(request, 'index.html')
+
 
 def login(request):
     if request.method=='POST':
