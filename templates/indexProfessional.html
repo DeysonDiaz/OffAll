@@ -22,7 +22,11 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                    
                     {% if request.session.email %}
                     <li class="nav-item">
-                        <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="editProfessional">Perfil</a>
+                        <form action="movEditProfessional" method="POST">  {% csrf_token %}
+                            <input type="text" class="form-control" value="{{request.session.email}}" name="email" hidden>  
+                            <button type="submit" class="nav-link menu_link btn" style="color: rgb(0, 0, 0)">Perfil</a>
+                        </form>
+                       
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu_link" style="color: rgb(0, 0, 0);" href="listRequests">Solicitudes</a>

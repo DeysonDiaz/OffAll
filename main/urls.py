@@ -32,6 +32,7 @@ urlpatterns = [
     path("movEditRequests", views.movEditRequests, name= "movEditRequests"),
     ##
     path("editProfessional", views.editProfessional, name= "editProfessional"),
+    path("movEditProfessional", views.movEditProfessional, name= "movEditProfessional"),
     path("bandejaMSG", views.bandejaMSG, name= "bandejaMSG"),
     path("editRequests", views.editRequests, name= "editRequests"),
     

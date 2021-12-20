@@ -78,5 +78,3 @@ class Requests(models.Model):
 #funcion de url
     def get_mos_url(self):
         return "detailsRequests/"+str(self.id)
-    def get_mos_url(self):
-        return "editRequests/"+str(self.id)

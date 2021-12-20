@@ -166,15 +166,29 @@ def cambProfessional(request):
         return render(request,'solicitud_edit.html',context )
 
 def editProfessional(request):
-    abc=Professional.objects.get(id=request.POST['id'])
+    if request.POST:
+        abc=Professional.objects.get(email=request.POST['id'])
+        abc.names = request.POST['names']
+        abc.surnames = request.POST['surnames']
+        abc.telephone = request.POST['telephone']
+        abc.dni = request.POST['dni']
+        abc.date = request.POST['date']
+        abc.profession = Profession.objects.get(id=request.POST['profession'])
+        abc.img = request.FILES.get('img')
+        abc.description = request.POST['desc']
+        abc.save()
+    #return render(request,'solicitud_edit.html',context )
+    return render(request, 'index.html')
+
+def movEditProfessional(request):
+    query1=Professional.objects.get(email=request.POST['email'])
     prof=Profession.objects.all()
     context = {
-        'objectList': abc,
+        'objectList': query1,
         'objectList1': prof,
     }
     
-    #return render(request,'solicitud_edit.html',context )
-    return render(request, 'perfilprofesional_edit.html',context)
+    return render(request,'perfilprofesional_edit.html',context )
 
 def deleteProfessional(request):
     var=Requests.objects.get(id=request.POST['id'])
@@ -194,7 +208,13 @@ def indexClient(request):
     return render(request, 'indexClient.html')
 
 def indexProfessional(request):
-    return render(request, 'indexProfessional.html')
+    queryset = Requests.objects.all()
+    q2 = Profession.objects.all()
+    context = {
+        'objectList': queryset,
+        'objectList2': q2,
+    }
+    return render(request, 'indexProfessional.html', context)
 
 def aceptarSolicitud(request):
     Solicitud = Requests.objects.get(id=request.POST.get('id'))
